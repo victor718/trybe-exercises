@@ -7,7 +7,7 @@
 // ****
 // *****
 
-let numero_lados = 5;
+let numero_lados = 6;
 
 if (numero_lados > 1) {
     for (let x = 0; x < numero_lados; x += 1) {
