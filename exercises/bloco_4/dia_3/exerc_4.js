@@ -4,8 +4,7 @@
 //  ***
 // *****
 
-let piramide = 23;
-let piramide_pronta = null;
+let piramide = 21;
 let asteriscos = 1;
 
 if (piramide >= 3 && piramide % 2 != 0) {
@@ -13,12 +12,11 @@ if (piramide >= 3 && piramide % 2 != 0) {
 
     for (let x = 0; x <= contador; x += 1) {
         let aux = ((piramide - 1) / 2) - x ;
-        // console.log(`Piramide ${piramide} - 1 / 2 - ${x} = ${aux}`);
         if (x > 0){
             asteriscos += 2;
-            console.log(' '.repeat(aux) + '*'.repeat(asteriscos) + ' '.repeat(aux));
+            console.log(' '.repeat(aux) + '*'.repeat(asteriscos));
         }else {
-            console.log(' '.repeat(aux) + '*'.repeat(x + 1) + ' '.repeat(aux));
+            console.log(' '.repeat(aux) + '*'.repeat(x + 1));
         }
     }
 

@@ -9,18 +9,24 @@
 //  *   *
 // *******
 
-let n = 1;
-let t = '';
-for (let x = 0; x <= 7; x += 1) {
+let piramide = 41;
 
-    if (x == 1) { t = '   *   \n'; }
+let piramide_pronta = '';
+
+
+
+if (piramide >= 3 && piramide % 2 != 0) {
+    let contador = (piramide - 1) / 2;
     
-    if (x == 2) { t += '  * *  \n'; }
-    
-    if (x == 3) { t += ' *   * \n'; }
-
-    if(x == 4) { t += '*******'; }
-
+    for (let x = 0; x < contador; x += 1) {
+        let aux = ((piramide - 1) / 2) - x ;
+        if (x > 0){
+            console.log(' '.repeat(aux) + '*' + ' '.repeat(2 * x - 1) + '*');
+        } else {
+            console.log(' '.repeat(aux) + '*');
+        }
+    }
+}else{
+    console.log('Número inválido')
 }
-console.log(t);
-
+console.log('*'.repeat(piramide));
