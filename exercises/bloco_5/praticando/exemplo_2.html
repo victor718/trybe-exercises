@@ -1,0 +1,32 @@
+<!-- 
+    Adicione ao seu HTML uma classe com alguns estilos para os seus dois parágrafos.
+    Recupere os seus parágrafos via código JavaScript, usando a função getElementsByClassName;
+    Altere algum estilo do primeiro deles.
+    Recupere o subtítulo pela tag. 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Titulo</h2>
+        <p class="texto-1">Paragrafo</p>
+        <p class="texto-1">Segundo Paragrafo</p>
+    </div>
+
+    <script>
+        let texto = document.getElementsByClassName('texto-1');
+        texto[0].style.background = 'red';
+        let h2 = document.getElementsByTagName('h2');
+        h2[0].style.fontSize = '40px';
+    </script>
+</body>
+
+</html>
