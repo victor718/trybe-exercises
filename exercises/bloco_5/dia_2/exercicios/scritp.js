@@ -1,81 +1,80 @@
-function criaElemento(elmento, name = '', idClass = ''){
+function criaElemento(elmento, name = '', idClass = '') {
     let el = document.createElement(elmento);
-    if (idClass === 'id'){
+    if (idClass === 'id') {
         el.id = name;
     }
-    if (idClass === 'class'){
+    if (idClass === 'class') {
         el.className = name
     }
     return el;
 }
 
-function exercise1 () {
-    let h1 = criaElemento('h1', 'tituloPrincipal', 'id');
+function exercise1() {
+    let h1 = criaElemento('h1');
     h1.innerText = 'Exercício 5.2 - JavaScript DOM';
     document.body.appendChild(h1);
 }
 
-function exercise2 () {
+function exercise2() {
     let div = criaElemento('div', 'main-content', 'class');
     document.body.appendChild(div);
 }
 
-function exercise3 () {
+function exercise3() {
     let div = criaElemento('div', 'center-content', 'class');
     let divMainContent = document.querySelector('.main-content');
-    divMainContent.append(div);
+    divMainContent.appendChild(div);
 }
 
-function exercise4 () {
+function exercise4() {
     let p = criaElemento('p', 'p-center-content', 'id');
     p.innerText = 'append VS appendChild';
     let divCenterContent = document.querySelector('.center-content');
-    divCenterContent.append(p);
+    divCenterContent.appendChild(p);
 }
 
-function exercise5 () {
+function exercise5() {
     let div = criaElemento('div', 'left-content', 'class');
     let divMainContent = document.querySelector('.main-content');
-    divMainContent.append(div);
+    divMainContent.appendChild(div);
 }
 
-function exercise6 () {
+function exercise6() {
     let div = criaElemento('div', 'right-content', 'class');
     let divMainContent = document.querySelector('.main-content');
-    divMainContent.append(div);
+    divMainContent.appendChild(div);
 }
 
-function exercise7 () {
+function exercise7() {
     let img = criaElemento('img', 'small-image', 'class');
     img.src = 'https://picsum.photos/200';
     let divLeftContent = document.querySelector('.left-content');
-    divLeftContent.append(img);
+    divLeftContent.appendChild(img);
 }
 
-function exercise8 () {
+function exercise8() {
     let ul = criaElemento('ul');
     let li = '';
     let valoresExtenso = ['Um', 'Dois', 'Três', 'Quatro', 'Cinco', 'Seis', 'Sete', 'Oito', 'Nove', 'Dez'];
     for (let i = 0; i < valoresExtenso.length; i += 1) {
         li = criaElemento('li');
         li.innerText = valoresExtenso[i];
-        ul.append(li);
+        ul.appendChild(li);
     }
     let divRightContent = document.querySelector('.right-content');
-    divRightContent.append(ul);
+    divRightContent.appendChild(ul);
 }
 
-function exercise9 () {
+function exercise9() {
     let divMainContent = document.querySelector('.main-content');
-    for (let i = 0; i < 3; i += 1){
+    for (let i = 0; i < 3; i += 1) {
         let h3 = criaElemento('h3');
-        h3.innerText = `Número -> ${i+1}`;
-        divMainContent.append(h3);
+        h3.innerText = `Número -> ${i + 1}`;
+        divMainContent.appendChild(h3);
     }
 }
 
-
-function main(){
+function main() {
     exercise1();
     exercise2();
     exercise3();
