@@ -65,6 +65,14 @@ function exercise8 () {
     divRightContent.append(ul);
 }
 
+function exercise9 () {
+    let divMainContent = document.querySelector('.main-content');
+    for (let i = 0; i < 3; i += 1){
+        let h3 = criaElemento('h3');
+        h3.innerText = `Número -> ${i+1}`;
+        divMainContent.append(h3);
+    }
+}
 
 
 function main(){
@@ -76,6 +84,7 @@ function main(){
     exercise6();
     exercise7();
     exercise8();
+    exercise9();
 }
 main();
 
