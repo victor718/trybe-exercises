@@ -22,6 +22,8 @@ function edit4() {
 }
 
 function edit5() {
+
+    let edit5 = 0;
     let paiDoCenterContent = document.querySelector('.center-content').parentNode;
     paiDoCenterContent.style.backgroundColor = 'green';
 }
