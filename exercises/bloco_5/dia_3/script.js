@@ -67,7 +67,7 @@ function alteraCor(color, element) {
 function eventHoliday() {
     let btn = document.getElementById('btn-holiday');
     let days = document.getElementsByClassName('holiday');
-    let holiday = false
+    let holiday = false;
     btn.addEventListener('click', function() {
         if(holiday === false){
             alteraCor('white', days);
@@ -79,11 +79,38 @@ function eventHoliday() {
     });
 }
 
+function createBtnFriday(sexta) {
+    let newBtn = criaElemento('button', 'id', 'btn-friday');
+    let getBtn = document.querySelector('.buttons-container');
+    newBtn.innerText = sexta;
+    getBtn.appendChild(newBtn); 
+}
+
+function eventFriday() {
+    let getBtn = document.getElementById('btn-friday');
+    console.log(getBtn);
+    let days = document.getElementsByClassName('friday');
+    console.log(days);
+    let friday = false;
+    getBtn.addEventListener('click', function(event) {
+        console.log(event)
+        if(friday === false) {
+            alteraCor('#efe', days);
+            friday = true;
+        }else {
+            alteraCor('#eee', days);
+            friday = false;
+        }
+    });
+}
+ 
 function main() {
     createDaysOfTheWeek();
     createDays();
     createBtnHoliday('Feriados');
     eventHoliday();
+    createBtnFriday('Sexta-feira');
+    eventFriday();
 }
 
 main();
