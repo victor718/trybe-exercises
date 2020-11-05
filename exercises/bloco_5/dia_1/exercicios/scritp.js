@@ -23,12 +23,10 @@ function uperCase1 () {
 }
 
 function imprimeConsole () {
-    let cont = document.getElementsByTagName('body');
-    let texto = '';
+    let cont = document.getElementsByTagName('p'); 
     for (let i = 0; i < cont.length; i += 1) {
-        texto += cont[i].innerText;
+        console.log(cont[i].innerText);
     }
-    console.log(texto);
 }
 
 function main () {
