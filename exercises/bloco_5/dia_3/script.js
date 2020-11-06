@@ -138,6 +138,35 @@ function addLegend(cor) {
     getMyTasks.appendChild(newDiv);
 }
 
+function eventLegend() {
+    let getDiv = document.querySelector('.task');
+    getDiv.addEventListener('click', function() {
+        if(getDiv.className !== 'task selected'){
+            getDiv.className = 'task selected';
+        }else{
+            getDiv.className = 'task';
+        }
+    })
+}
+
+function eventDay() {
+    let getDiv = document.querySelector('.task');
+    let newCor = getDiv.style.backgroundColor;
+    let getDay = document.querySelectorAll('.day');
+    let corOriginal = getDay[0].style.color;
+    console.log(getDay)
+    for(let i = 0; i < getDay.length; i += 1) {
+        getDay[i].addEventListener('click', function() {
+            if(getDay[i].style.color === corOriginal){
+                getDay[i].style.color = newCor;
+            }else{
+                getDay[i].style.color = corOriginal;
+            }
+        })
+    }
+}
+
+
  
 function main() {
     createDaysOfTheWeek();
@@ -149,6 +178,8 @@ function main() {
     eventZoom();
     criaTarefa('Projeto');
     addLegend('red');
+    eventLegend();
+    eventDay();
 }
 
 main();
