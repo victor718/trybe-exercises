@@ -86,23 +86,58 @@ function createBtnFriday(sexta) {
     getBtn.appendChild(newBtn); 
 }
 
+function alteraText(element, tipo) {
+    let dias = [4, 11, 18, 25];
+    let sextou = 'SEXTOU o/!';
+    for (let i = 0; i < element.length; i += 1) {
+        element[i].innerText = tipo === 1 ? dias[i] : sextou;
+    }
+}
+
 function eventFriday() {
     let getBtn = document.getElementById('btn-friday');
-    console.log(getBtn);
     let days = document.getElementsByClassName('friday');
-    console.log(days);
     let friday = false;
     getBtn.addEventListener('click', function(event) {
         console.log(event)
         if(friday === false) {
-            alteraCor('#efe', days);
+            alteraText(days, 1);
             friday = true;
         }else {
-            alteraCor('#eee', days);
+            alteraText(days, 0);
             friday = false;
         }
     });
 }
+
+
+
+function eventZoom() {
+    let getDay = document.getElementsByClassName('day');
+    for (let i = 0; i < getDay.length; i += 1) {
+        getDay[i].addEventListener('mouseover', function(event) {
+            event.target.style.transform = 'scale(1.4)';
+        })
+        getDay[i].addEventListener('mouseout', function(event){
+            event.target.style.transform = 'none';
+        })
+    }
+}
+
+function criaTarefa(tarefa) {
+    let newSpan = criaElemento('span');
+    let getDiv = document.querySelector('.my-tasks');
+    newSpan.innerText = tarefa;
+    getDiv.appendChild(newSpan);
+}
+
+function addLegend(cor) {
+    let newDiv = criaElemento('div', 'class', 'task');
+    let getMyTasks = document.querySelector('.my-tasks');
+    newDiv.style.backgroundColor = cor;
+    getMyTasks.appendChild(newDiv);
+}
+
  
 function main() {
     createDaysOfTheWeek();
@@ -111,6 +146,9 @@ function main() {
     eventHoliday();
     createBtnFriday('Sexta-feira');
     eventFriday();
+    eventZoom();
+    criaTarefa('Projeto');
+    addLegend('red');
 }
 
 main();
