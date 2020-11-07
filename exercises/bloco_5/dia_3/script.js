@@ -11,9 +11,6 @@ function createDaysOfTheWeek() {
     };
 };
 
-// createDaysOfTheWeek();
-
-
 function criaElemento(elmento, name = '', value = '') {
     let el = document.createElement(elmento);
     if (value !== '' && name !== '') {
@@ -30,7 +27,7 @@ function classHoliday(element, day) {
 }
 
 function classFriday(element, day) {
-    if (day === 4 || day === 11 || day === 18 || day === 25){
+    if (day === 4 || day === 11 || day === 18 || day === 25) {
         element.className += ' friday';
     }
     return element
@@ -68,11 +65,11 @@ function eventHoliday() {
     let btn = document.getElementById('btn-holiday');
     let days = document.getElementsByClassName('holiday');
     let holiday = false;
-    btn.addEventListener('click', function() {
-        if(holiday === false){
+    btn.addEventListener('click', function () {
+        if (holiday === false) {
             alteraCor('white', days);
             holiday = true;
-        }else{
+        } else {
             alteraCor('#eee', days);
             holiday = false;
         }
@@ -83,7 +80,7 @@ function createBtnFriday(sexta) {
     let newBtn = criaElemento('button', 'id', 'btn-friday');
     let getBtn = document.querySelector('.buttons-container');
     newBtn.innerText = sexta;
-    getBtn.appendChild(newBtn); 
+    getBtn.appendChild(newBtn);
 }
 
 function alteraText(element, tipo) {
@@ -98,27 +95,25 @@ function eventFriday() {
     let getBtn = document.getElementById('btn-friday');
     let days = document.getElementsByClassName('friday');
     let friday = false;
-    getBtn.addEventListener('click', function(event) {
+    getBtn.addEventListener('click', function (event) {
         console.log(event)
-        if(friday === false) {
+        if (friday === false) {
             alteraText(days, 1);
             friday = true;
-        }else {
+        } else {
             alteraText(days, 0);
             friday = false;
         }
     });
 }
 
-
-
 function eventZoom() {
     let getDay = document.getElementsByClassName('day');
     for (let i = 0; i < getDay.length; i += 1) {
-        getDay[i].addEventListener('mouseover', function(event) {
+        getDay[i].addEventListener('mouseover', function (event) {
             event.target.style.transform = 'scale(1.4)';
         })
-        getDay[i].addEventListener('mouseout', function(event){
+        getDay[i].addEventListener('mouseout', function (event) {
             event.target.style.transform = 'none';
         })
     }
@@ -140,12 +135,8 @@ function addLegend(cor) {
 
 function eventLegend() {
     let getDiv = document.querySelector('.task');
-    getDiv.addEventListener('click', function() {
-        if(getDiv.className !== 'task selected'){
-            getDiv.className = 'task selected';
-        }else{
-            getDiv.className = 'task';
-        }
+    getDiv.addEventListener('click', function () {
+        getDiv.classList.toggle('selected');
     })
 }
 
@@ -154,20 +145,52 @@ function eventDay() {
     let newCor = getDiv.style.backgroundColor;
     let getDay = document.querySelectorAll('.day');
     let corOriginal = getDay[0].style.color;
-    console.log(getDay)
-    for(let i = 0; i < getDay.length; i += 1) {
-        getDay[i].addEventListener('click', function() {
-            if(getDay[i].style.color === corOriginal){
+    for (let i = 0; i < getDay.length; i += 1) {
+        getDay[i].addEventListener('click', function () {
+            if (getDay[i].style.color === corOriginal) {
                 getDay[i].style.color = newCor;
-            }else{
+            } else {
                 getDay[i].style.color = corOriginal;
             }
         })
     }
 }
 
+function validaText(texto) {
+    let newLi = criaElemento('li');
+    let getInput = document.querySelector('#task-input');
+    if (texto.length < 2) {
+        alert('ERRO AO ADICIONAR COMPROMISSO!');
+        getInput.value = '';
+    } else {
+        newLi.innerText = texto;
+        getInput.value = '';
+    }
+    return newLi;
+}
 
- 
+function addCompromisso() {
+    let getInput = document.querySelector('#task-input');
+    let getBtn = document.querySelector('#btn-add');
+    let getUl = document.querySelector('.task-list');
+    let texto = '';
+    let newEl = '';
+
+    getInput.addEventListener('keyup', function (event) {
+        let x = event.keyCode;
+        if (x === 13) {
+            texto = getInput.value;
+            newEl = validaText(texto);
+            getUl.appendChild(newEl);
+        }
+    })
+    getBtn.addEventListener('click', function () {
+        texto = getInput.value;
+        newEl = validaText(texto);
+        getUl.appendChild(newEl);
+    })
+}
+
 function main() {
     createDaysOfTheWeek();
     createDays();
@@ -180,6 +203,7 @@ function main() {
     addLegend('red');
     eventLegend();
     eventDay();
+    addCompromisso();
 }
 
 main();
