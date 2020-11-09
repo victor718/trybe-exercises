@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript - Web Storage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title-top">JavaScript - Web Storage</h1>
+    </header>
+    <aside>
+        <ul class="liste-iten">
+            <li class="itens">
+                <label class="label-itens" for="">Altere a cor de fundo texto</label>
+                <input class="input-itens" id="back-color" type="color">
+                <button class="buttons-itens" id="btn-backCor">Aplicar</button>
+            </li>
+            <li class="itens">
+                <label class="label-itens" for="">Altere a cor da fonte</label>
+                <input class="input-itens" id="font-color" type="color" placeholder="altere a cor do texto">
+                <button class="buttons-itens" id="btn-fontCor">Aplicar</button>
+            </li>
+            <li class="itens">
+                <label class="label-itens" id="tam-fonte" for="">Altere o tamanho da fonte</label>
+                <input class="input-itens" id="input-font-tam" type="number" value="10" min="5" max="50">
+                <button class="buttons-itens" id="btn-fonteSize">Aplicar</button>
+            </li>
+            <li class="itens">
+                <label class="label-itens" for="">Altere o tipo da fonte</label>
+                <select class="select-itens" name="tam-fonte" id="tam-fonte">
+                    <option value="Arial">Arial</option>
+                    <option value="Oswald">Oswald</option>
+                    <option value="Roboto">Roboto</option>
+                </select>
+                <button class="buttons-itens" id="btn-fontFamily">Aplicar</button>
+            </li>
+            <li class="itens">
+                <label class="label-itens" for="">Altera espaçamento entre as linhas</label>
+                <input class="input-itens" id="input-space" type="number" value="1" min="1" max="5" step="0.1">
+                <button class="buttons-itens"  id="btn-espaceLine">Aplicar</button>
+            </li>
+        </ul>
+        <button class="buttons-itens" id="salvar">Salvar</button>
+    </aside>
+    <section class="text-model">
+        <p id="text-edit">What is Lorem Ipsum?
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap
+            into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the
+            release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus PageMaker including versions of Lorem Ipsum.
+            Why do we use it?
+            It is a long established fact that a reader will be distracted by the readable content of a page when
+            looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
+            of letters, as opposed to using 'Content here, content here', making it look like readable English. Many
+            desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
+            search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
+            evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
