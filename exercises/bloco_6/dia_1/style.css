@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(32, 30, 30);
+}
+
+header {
+    width: 80%;
+    height: auto;
+    margin: 10px auto 20px auto;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+section {
+    background-color: white;
+    border-radius: 4px;
+    width: 80%;
+    height: 1200px;
+    position: relative;
+    margin: 25px auto 15px auto;
+}
+
+form {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    margin: 10px auto 15px auto;
+}
+
+fieldset {
+    margin: 3px auto 3px auto;
+    width: 60%;
+    border-radius: 3px;
+    padding: 10px;
+}
+
+input[type=text] , input[type=email]{
+    width: 50%;
+    height: 20px;
+    margin: 3px 5px 10px 10px;
+    border: 1px solid rgb(187, 175, 175);
+    border-radius: 2px;
+    outline: none;
+    display: block;
+}
+
+input[type=radio] {
+    margin: 3px 5px 10px 1px;
+    display: inline-block;
+}
+
+input[type=date] {
+    margin-left: 10px;
+}
+
+input[type=date]:hover {
+    cursor: pointer;
+}
+
+
+
+label {
+    margin-left: 10px;
+    margin-top: 10px;
+    display: block;
+    width: 25%;
+    display: block;
+}
+
+div {
+    width: 80%;
+}
+
+select {
+    outline: none;
+    margin: 3px 5px 15px 10px;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea {
+    margin-left: 10px;
+}
+
+button {
+    margin: 15px 5px 10px 10px;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(113, 204, 61);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(113, 204, 61, 0.856);
+}
+
+.residenceLabel {
+    display: inline-block;
+}
+
+.label-house {
+    width: 12%;
+}
+
+.residenceInput{
+    display: inline-block;
+}
+
+.title-box {
+    margin: auto;
+}
+
+.btn-inline {
+    display: inline-block;
+    width: auto;
+    margin: 5px;
+}
+
+.btn-inline button {
+    margin: auto;
+}
+
+.btn-red {
+    background-color:rgb(230, 23, 23);
+    color: black;
+}
+
+.btn-red-hover:hover {
+    background-color: rgba(230, 23, 23, 0.822);
+}
