@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de currículo</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
+
 <body>
     <header>
         <div class="title-box">
@@ -13,39 +16,40 @@
         </div>
     </header>
     <section>
-        <form action="" method="GET" enctype="multipart/form-data">
+        <form name="formCVs" action="" method="GET" enctype="multipart/form-data">
             <fieldset>
                 <legend>Dados pessoais</legend>
                 <div>
                     <label for="idName">Nome</label>
-                    <input type="text" name="yourName" id="idName" maxlength="40" required>
+                    <input type="text" name="yourName" id="idName" maxlength="40">
                 </div>
                 <div>
                     <label for="idEmail">E-mail</label>
-                    <input type="email" name="yourEmail" id="idEmail" maxlength="50" required>
+                    <input type="email" name="yourEmail" id="idEmail" maxlength="50">
                 </div>
                 <div>
                     <label for="idCpf">CPF</label>
-                    <input type="text" name="yourCpf" id="idCpf" maxlength="11" required>
+                    <input type="text" name="yourCpf" id="idCpf" maxlength="14">
                 </div>
                 <div>
                     <label for="idAddress">Endereço</label>
-                    <input type="text" name="yourAddress" id="idAddress" maxlength="200" required>
+                    <input type="text" name="yourAddress" id="idAddress" maxlength="200">
                 </div>
                 <div>
                     <label for="idCity">Cidade</label>
-                    <input type="text" name="yourCity" id="idCity" maxlength="28" required>
+                    <input type="text" name="yourCity" id="idCity" maxlength="28">
                 </div>
                 <div>
                     <label for="idStates">Estado</label>
-                    <select name="yourStates" id="idStates" class="form-select" required>
+                    <select name="yourStates" id="idStates" class="form-select">
                     </select>
                 </div>
                 <div>
                     <label class="residenceLabel label-house" for="idHouse">Casa</label>
-                    <input type="radio" name="residenceType" id="idHouse" class="residenceInput" checked>
+                    <input type="radio" value="casa" name="residenceType" id="idHouse" class="residenceInput" checked>
                     <label class="residenceLabel" for="idApartament">Apartamento</label>
-                    <input type="radio" name="residenceType" id="idApartament" class="residenceInput">
+                    <input type="radio" value="apartamento" name="residenceType" id="idApartament"
+                        class="residenceInput">
                 </div>
             </fieldset>
 
@@ -53,19 +57,20 @@
                 <legend>Dados do seu ultimo emprego</legend>
                 <div>
                     <label for="idResumeSummary">Resumo do currículo</label>
-                    <textarea name="yourResumeSummary" id="idResumeSummary" cols="50" rows="20" required></textarea>
+                    <textarea type="text" name="yourResumeSummary" id="idResumeSummary" cols="50" rows="20"></textarea>
                 </div>
                 <div>
                     <label for="idOffice">Cargo</label>
-                    <input type="text" name="yourOffice" id="idOffice" maxlength="40" required>
+                    <input type="text" name="yourOffice" id="idOffice" maxlength="40">
                 </div>
                 <div>
                     <label for="idJobDescription">Descrição do cargo</label>
-                    <input type="text" name="yourJobDescription" id="idJobDescription" maxlength="500" required>
+                    <input type="text" name="yourJobDescription" id="idJobDescription" maxlength="500">
                 </div>
                 <div>
                     <label for="idDateOfBirth">Data de nascimento</label>
-                    <input type="text" name="yourBirth" id="idDateOfBirth" placeholder="00-00-0000" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
+                    <input type="text" name="yourBirth" id="idDateOfBirth" placeholder="00-00-0000"
+                        pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
                 </div>
                 <div class="btn-inline">
                     <button type="submit" id="sendButton">Enviar</button>
@@ -75,7 +80,10 @@
                 </div>
             </fieldset>
         </form>
+        <div id="forms-ok">
+        </div>
     </section>
     <script src="script.js"></script>
 </body>
+
 </html>
