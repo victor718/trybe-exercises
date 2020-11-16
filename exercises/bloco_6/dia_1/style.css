@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(32, 30, 30);
+    position: relative;
+}
+
+header {
+    width: 80%;
+    height: auto;
+    margin: 10px auto 20px auto;
+    background-color: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+section {
+    background-color: white;
+    border-radius: 4px;
+    width: 80%;
+    min-height: 1200px;
+    max-width: 2000px;
+    position: absolute;
+    margin: 25px auto 15px auto;
+    right: 0;
+    left: 0;
+}
+
+form {
+    width: 48%;
+    height: auto;
+    position: absolute;
+    margin: 10px auto 15px auto;
+}
+
+fieldset {
+    margin: 3px auto 10px auto;
+    width: 95%;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+input[type=text] , input[type=email]{
+    width: 98%;
+    height: 30px;
+    margin: 3px 1px 10px 10px;
+    border: 1px solid rgb(187, 175, 175);
+    border-radius: 4px;
+    outline: none;
+    display: block;
+    padding: 2px;
+}
+
+input[type=radio] {
+    margin: 3px 5px 10px 1px;
+    display: inline-block;
+}
+
+input[type=date] {
+    margin-left: 10px;
+}
+
+input[type=date]:hover {
+    cursor: pointer;
+}
+
+label {
+    margin-left: 10px;
+    margin-top: 10px;
+    display: block;
+    width: 25%;
+    display: block;
+}
+
+div {
+    width: 80%;
+}
+
+select {
+    outline: none;
+    margin: 3px 5px 15px 10px;
+    display: block;
+}
+
+h1 {
+    text-align: center;
+}
+
+textarea {
+    margin-left: 10px;
+    border-radius: 4px;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+button {
+    margin: 15px 5px 10px 10px;
+    width: 70px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(113, 204, 61);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgba(113, 204, 61, 0.856);
+}
+
+.residenceLabel {
+    display: inline-block;
+}
+
+.label-house {
+    width: 12%;
+}
+
+.residenceInput{
+    display: inline-block;
+}
+
+.title-box {
+    margin: auto;
+}
+
+.btn-inline {
+    display: inline-block;
+    width: auto;
+    margin: 5px;
+}
+
+.btn-inline button {
+    margin: auto;
+}
+
+.btn-red {
+    background-color:rgb(230, 23, 23);
+    color: black;
+}
+
+.btn-red-hover:hover {
+    background-color: rgba(230, 23, 23, 0.822);
+}
+
+#forms-ok {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    margin: 15px auto 0 auto;
+    padding: 10px;
+}
+
+.itens {
+    width: 90%;
+    margin: 15px auto;
+    border-bottom: 1px solid black;
+    padding-left: 5px;
+}
