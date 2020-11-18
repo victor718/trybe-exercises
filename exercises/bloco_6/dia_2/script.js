@@ -15,7 +15,8 @@ function createCheckBoxStates() {
 
 function formValidationDate(getDate) {
     let validDate = getDate.replace('-', '/');
-    let data = getDate.value.split('-')
+    console.log('REPLACE DATA  ' + validDate);
+    let data = getDate.split('-')
     let day = data[0];
     let month = data[1]
     let year = data[2]
@@ -58,7 +59,7 @@ function formValidationDate(getDate) {
 //https://gist.github.com/joaohcrangel/8bd48bcc40b9db63bef7201143303937
 function isValidCPF(cpf) {
     let validCpf = cpf;
-    if ((cpf.length < 13) || (cpf[3] !== '.' || cpf[7] !== '.' || cpf[11] !== '.')) {
+    if ((cpf.length < 14) || (cpf[3] !== '.' || cpf[7] !== '.' || cpf[11] !== '-')) {
         return false;
     }
     if (typeof cpf !== "string") return false
@@ -114,19 +115,73 @@ function mascaraCpf() {
     })
 }
 
-const reg = el => (el.type === 'text' || el.type === 'select-one' || el.type === 'textarea') || (el.type === 'radio' && el.checked);
+const reg = el => (el.type === 'text' || el.type === 'select-one' || el.type === 'textarea' || el.type === 'email') || (el.type === 'radio' && el.checked);
+
+const createElement = (tipo, name, value) => {
+    let el = document.createElement(tipo);
+    el.setAttribute(name, value);
+    return el;
+}
+
+function clearAll() {
+    let getDivName = document.getElementById('isName');
+    let getList = document.getElementById('list-info');
+    let getInfoJob = document.getElementById('info-job');
+    let t = getDivName.childNodes.length + getList.childNodes.length + getInfoJob.childNodes.length;
+    let getH1;
+    let getLi;
+    let getP;
+    if (t > 0) {
+        getH1 = document.querySelectorAll('#isName h1');
+        getH1.forEach(e => getDivName.removeChild(e));
+
+        getLi = document.querySelectorAll('#list-info li');
+        getLi.forEach(e => getList.removeChild(e));
+
+        getP = document.querySelectorAll('#info-job p');
+        getP.forEach(e => getInfoJob.removeChild(e));
+    }
+}
+
+function createCv(array) {
+    console.log(array);
+    let indice = ['E-mail: ', 'CPF: ', 'Endereço: ', 'Cidade: ', 'Estado: ', 'Casa ou apart: ', 'Resumo do currículo', 'Cargo: ', 'Descrição do cargo: ', 'Data de nascimento: '];
+    let getDivName = document.getElementById('isName');
+    let getList = document.getElementById('list-info');
+    let getInfoJob = document.getElementById('info-job');
+    let newEl;
+    clearAll();
+    array.forEach((el, index) => {
+        if (index === 0) {
+            newEl = createElement('h1', 'class', 'font-weight-bold h2 text-center');
+            newEl.innerText = el;
+            getDivName.appendChild(newEl);
+        } else if (index > 0 && index < 7) {
+            newEl = createElement('li', 'class', 'text-left mt-2');
+            newEl.innerText = `${indice[index - 1]}${el}`;
+            getList.appendChild(newEl);
+        }else {
+            newEl = createElement('p', 'class', 'mt-3');
+            newEl.innerHTML = `${'<strong>'} ${indice[index - 1]} ${'</strong>'} ${'</br>'}${el}`;
+            getInfoJob.appendChild(newEl);
+        }
+    })
+}
 
 function isValidate(formDate) {
     formDate.addEventListener('submit', function (event) {
         event.preventDefault()
         let cpf = formDate.yourCpf.value;
-        console.log(cpf);
-        let arrayDateValid = [];
-        for(let el of formDate) {
-            
-            if(isValidCPF(cpf)){
-
+        let birth = formDate.yourBirth.value;
+        if (!isValidCPF(cpf) || !formValidationDate(birth)) {
+            alert('DADOS INVÁLIDOS');
+        } else {
+            let dates = [];
+            for (let el of formDate) {
+                console.log(el.type)
+                if (reg(el)) dates.push(el.value);
             }
+            createCv(dates);
         }
     })
 }
@@ -137,10 +192,7 @@ function isValidate(formDate) {
         createCheckBoxStates();
         mascaraCpf();
         let forms = document.getElementsByClassName(isForm);
-        isValidate(forms[0]);
-        // console.log('-----------------------------------')
-        // console.log(forms[0].idCpf)
-        // console.log('-----------------------------------')
+        isValidate(forms[0])
 
     })
 })();
