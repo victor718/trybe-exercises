@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Quattrocento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gudea&display=swap');
+
+body {
+  background-color: rgb(255, 255, 255);
+  font-family: 'Luckiest Guy', cursive, 'Quasttrocento', serif;
+}
+
+header, aside, article, footer {
+  background-color: white;
+}
+
+@media screen and (min-width: 360px) {
+  header {
+    align-items: center;
+    background-color: #728639;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    height: 120px;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+  }
+
+  header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+  }
+
+  header nav {
+    width: 100%;
+  }
+
+  header nav ul {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .aside-one , .aside-two , .main-content , footer {
+    border-radius: 3px;
+    height: auto;
+    margin: 5px;
+    padding: 5px;
+    position: relative;
+    top: 120px;
+  }
+
+  .aside-one {
+    background-color: #062E03;
+    color: #fff;
+    font-family: 'Space Mono', monospace;
+    height: auto;
+    line-height: 30px;
+    text-align: center;
+  }
+
+  .aside-two {
+    background-color: #062E03;
+    color: white;
+  }
+
+  .aside-two h2 {
+    font-size: 1.2em;
+    margin: 2px;
+  }
+
+  .aside-two ul {
+    line-height: 25px;
+  }
+
+  .main-content {
+    background-color: #FF964F;
+    font-family: 'Gudea', sans-serif;
+  }
+
+  .main-content h1 {
+    text-align: center;
+  }
+
+  .main-content p {
+    line-height: 20px;
+    margin-bottom: 5px;
+    padding: 3px;
+  }
+
+  footer {
+    background-color: #728639;
+  }
+
+  footer h3 {
+    margin-bottom: 3px;
+  }
+
+} 
