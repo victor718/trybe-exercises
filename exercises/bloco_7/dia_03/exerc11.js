@@ -13,7 +13,7 @@ const removeVowels = (word) => {
       characters[i] === 'e' ||
       characters[i] === 'u'
     ) {
-      
+
       results += i;
     } else {
       results += word[i];
