@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        @media (max-width: 600px) {
+            div.example {
+                font-size: 50px;
+                padding: 50px;
+                border: 8px solid black;
+                background: red;
+            }
+        }
+
+        @media screen and (max-width: 900px) and (min-width: 600px) {
+            div.example {
+                font-size: 50px;
+                padding: 50px;
+                border: 8px solid black;
+                background: yellow;
+            }
+        }
+
+        @media (max-width: 1100px) and (min-width: 900px) {
+            div.example {
+                font-size: 50px;
+                padding: 50px;
+                border: 8px solid black;
+                background: blue;
+            }
+        }
+
+        @media (min-width: 1500px) {
+            div.father {
+                display: flex;
+                border: 1px solid black;
+                justify-content: space-around;
+            }
+            div.example {
+                width: 40%;
+                font-size: 50px;
+                padding: 50px;
+                border: 1px solid black;
+                margin: 2px;
+                background-color: chocolate;
+            }
+        }
+
+        @media (min-width: 600px) and (max-width: 900px){
+            div.vis {
+                background-color: rgb(17, 14, 184);
+            }
+
+            div.hidden {
+                display: none;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+            div.vis {
+                display: none;
+            }
+            div.hidden {
+                background-color: rgb(137, 153, 138);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h2>Change the appearance of DIV on different screen sizes</h2>
+
+    <div class="father">
+        <div class="example vis">Example DIV.</div>
+        <div class="example hidden">Example DIV.</div>
+    </div>
+
+
+    <p>When the browser's width is between 600 and 900px, change the appearance of DIV.
+        <strong>Resize the browser window to see the effect</strong></p>
+
+</body>
+
+</html>
