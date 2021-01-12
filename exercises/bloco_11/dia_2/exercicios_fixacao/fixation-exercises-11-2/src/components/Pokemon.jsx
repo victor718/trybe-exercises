@@ -8,7 +8,7 @@ class Pokemon extends Component {
       <span className="pokemon-info">{this.props.pokemon.name}</span>
       <span className="pokemon-info">{this.props.pokemon.type}</span>
       <span className="pokemon-info">
-        {this.props.pokemon.averageWeight.value}
+      Average Weight: {this.props.pokemon.averageWeight.value}
         {' '}
         {this.props.pokemon.averageWeight.measurementUnit}
       </span>
