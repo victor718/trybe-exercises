@@ -2,15 +2,27 @@ import React, { Component } from 'react';
 import './Pokemon.css';
 
 class Pokemon extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: props.pokemon.name,
+      type: props.pokemon.type,
+      value: props.pokemon.averageWeight.value,
+      measurementUnit: props.pokemon.averageWeight.measurementUnit,
+      moreInfo: props.pokemon.moreInfo,
+      image: props.pokemon.image
+    };
+  }
+
   generateInfoPokemon() {
     const infoPokemon = (
     <div className="pokemon-content-info">
-      <span className="pokemon-info">{this.props.pokemon.name}</span>
-      <span className="pokemon-info">{this.props.pokemon.type}</span>
+      <span className="pokemon-info">{this.state.name}</span>
+      <span className="pokemon-info">{this.state.type}</span>
       <span className="pokemon-info">
-      Average Weight: {this.props.pokemon.averageWeight.value}
+      Average Weight: {this.state.value}
         {' '}
-        {this.props.pokemon.averageWeight.measurementUnit}
+        {this.state.measurementUnit}
       </span>
     </div>
     )
@@ -20,8 +32,8 @@ class Pokemon extends Component {
   generateImagePokemon() {
     const imagePokemon = (
       <div className="pokemon-content-image">
-        <a href={this.props.pokemon.moreInfo} target="_blanck">
-          <img src={this.props.pokemon.image} alt="imagem pokemon"/>
+        <a href={this.state.moreInfo} target="_blanck">
+          <img src={this.state.image} alt="imagem pokemon"/>
         </a>
       </div>
     )
