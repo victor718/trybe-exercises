@@ -126,6 +126,10 @@ class Formulario extends Component{
             <Label nameField={ "Cargo:" } />
             <textarea rows="10" cols="82" maxLength="40" required />
           </div>
+          <div className="field-descJob">
+            <Label nameField={ 'Descrição do cargo:' } />
+            <Input handleChange={ this.handleChange } name={ "" } value={ "" }/>
+          </div>
         </fieldset>
       </form>
     );
