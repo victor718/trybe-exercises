@@ -27,13 +27,13 @@
                     em um array de uma ou mais expressões,
     
     db.inventory.find({ $nor: [{ price: 1.99 }, { sale: true }] })
-
+    *
     Contêm o campo price com valor diferente de 1.99 
     e o campo sale com valor diferente de true ;
-
+    *
     Ou contêm o campo price com valor diferente de 1.99 
     e não contêm o campo sale ;
-
+    *
     Ou não contêm o campo price e contêm o campo 
     sale com valor diferente de true ;
     Ou não contêm o campo price e nem o campo sale .
@@ -42,9 +42,11 @@
     =================================================================
     $and    ()      executa a operação lógica E num array de uma 
                     ou mais expressões
-    
+    db.inventory.find({
+      $and: [
+        { price: { $ne: 1.99 } },
+        { price: { $exists: true } }
+      ]
+    })
     =================================================================
-
-    
 */ 
-
