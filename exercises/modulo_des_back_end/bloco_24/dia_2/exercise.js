@@ -1,0 +1,193 @@
+// 1: Adicione a categoria "superhero" ao filme Batman .
+// Após a execução do método .find().pretty() , o resultado do filme 
+// Batman será parecido com o dessa imagem:
+db.movies.updateOne(
+  { title: "Batman" },
+  { $push: { "category":  "superhero" } }
+);
+
+
+// Utilizando o modificador $each , adicione as
+// categorias "villain" e "comic-based" ao filme Batman .
+db.movies.updateOne(
+  { title: "Batman" },
+  { $push: {
+    category: {
+      $each: ["villain", "comic-based"]
+    }
+  } }
+);
+
+
+// Exercício 3: Remova a categoria "action" do filme Batman .
+// Após a execução do método .find().pretty() , o resultado do
+// filme Batman será parecido com o dessa imagem
+db.movies.updateOne(
+  { title: "Batman"},
+  { $pull: { category: "action" } }
+);
+
+
+// Exercício 4: Remova o primeiro elemento do 
+// array category do filme Batman .
+// Após a execução do método .find().pretty() , 
+// o resultado do filme Batman será parecido 
+// com o dessa imagem:
+db.movies.updateOne(
+  { title: "Batman" },
+  { $pop: { category: -1 } }
+);
+
+
+// Exercício 5: Remova o último elemento do array category 
+// do filme Batman .
+// Após a execução do método .find().pretty() , 
+// o resultado do filme Batman 
+// será parecido com o dessa imagem:
+
+db.movies.updateOne(
+  { title: "Batman" },
+  { $pop: { category: 1 } }
+);
+
+
+// Adicione o elemento "action" ao array category do 
+// filme Batman , garantindo que esse valor não se duplique.
+// Após a execução do método .find().pretty() o 
+// resultado do filme Batman será parecido com o dessa imagem:
+db.movies.updateOne(
+  { title: "Batman" },
+  { $addToSet: {
+    category: { 
+      $each: ["action"] 
+    }
+  } }
+);
+
+
+// Exercício 7: Adicione a categoria "90's" 
+// aos filmes Batman e Home Alone .
+// Após a execução do método .find().pretty() , 
+// o resultado do filme Batman e do filme Home 
+// Alone será parecido com o dessa imagem:
+db.movies.updateMany(
+  { title: { $in: ["Batman", "Home Alone"] } },
+  { $addToSet: {
+    category: "90's"
+  } }
+);
+
+// Exercício 8: Crie um array de documentos
+// chamado cast para o filme Home Alone com os seguintes dados:
+db.movies.updateOne(
+  { title: "Home Alone" },
+    { $set: { 
+    "cast": [
+        {
+          "actor": "Macaulay Culkin",
+          "character": "Kevin"
+        },
+        {
+          "actor": "Joe Pesci",
+          "character": "Harry"
+        },
+        {
+          "actor": "Daniel Stern"
+        }
+      ]
+    }
+  }
+)
+
+
+// Exercício 9: Adicione o campo character com o valor 
+// Marv ao array de cast em que o campo actor seja igual 
+// a Daniel Stern no filme Home Alone .
+// Dica : Para isso, leia aqui sobre o operador $ .
+// Após a execução do método .find().pretty() , o resultado 
+// do filme Home Alone será parecido com o dessa imagem:
+db.movies.updateOne(
+  { title: "Home Alone" },
+  { $set: {
+    "cast.$[elemento].character": "Marv",
+  }, },
+  { arrayFilters: [{ "elemento.actor": "Daniel Stern" }] }
+);
+
+
+// Exercício 10: Crie um array de documentos chamado
+// cast para o filme Batman com os seguintes dados:
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: {
+    cast: [
+      {
+        "character": "Batman"
+      },
+      {
+        "character": "Alfred"
+      },
+      {
+        "character": "Coringa"
+      }
+    ]
+  } }
+);
+
+
+// Exercício 11: Produza três querys para o filme Batman :
+
+// Adicione o campo actor , que deve ser um array com o 
+// valor Christian Bale , ao array de cast em que o campo 
+// character seja igual a Batman ;
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: { 
+    "cast.$[elemento].actor": ["Christian Bale"]
+   }, },
+   { arrayFilters: [{ "elemento.character": "Batman" }] }
+);
+
+
+// Adicione o campo actor , que deve ser um array com o 
+// valor Michael Caine , ao array de cast em que o campo 
+// character seja igual a Alfred ;
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: { 
+    "cast.$[elemento].actor": ["Michael Caine"]
+  }, },
+  { arrayFilters: [{ "elemento.character": "Alfred" }] }
+);
+
+// Adicione o campo actor , que deve ser um array com o 
+// valor Heath Ledger , ao array de cast em que o campo 
+// character seja igual a Coringa .
+db.movies.updateOne(
+  { title: "Batman" },
+  { $set: { 
+    "cast.$[elemento].actor": ["Heath Ledger"]
+  }, },
+  { arrayFilters: [{ "elemento.character": "Coringa" }] }
+);
+
+
+// Exercício 12: Adicione aos atores de cast do character
+// Batman do filme Batman os valores "Michael Keaton" , 
+// "Val Kilmer" e "George Clooney" , e deixe o array em 
+// ordem alfabética.
+// Dica : Para isso, leia aqui sobre o operador $ .
+db.movies.updateOne(
+  { title: "Batman", "cast.character": "Batman" },
+  { $push: {
+    "cast.$.actor": {
+      $each: [
+        "Michael Keaton",
+        "Val Kilmer",
+        "George Clooney"
+      ],
+      $sort: 1
+      }
+    },
+  }
+);
