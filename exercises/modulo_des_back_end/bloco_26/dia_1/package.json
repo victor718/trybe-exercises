@@ -1,0 +1,14 @@
+{
+  "name": "bloco_26",
+  "version": "1.0.0",
+  "description": "meu primieiro pacote node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dog-names": "^2.0.0"
+  }
+}
